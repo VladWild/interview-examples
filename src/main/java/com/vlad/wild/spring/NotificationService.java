@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 /**
- * Как в сервисе NotificationService указать конкретную реализацию Sender'а
+ * Как в сервисе NotificationService указать конкретную реализацию Sender'а?
  */
 
 @Service
