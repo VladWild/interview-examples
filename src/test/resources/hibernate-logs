@@ -1,0 +1,55 @@
+2022-05-21 21:06:46.366  INFO 8928 --- [           main] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@74e28667 testClass = JpaHibernateTest, testInstance = com.vlad.wild.jpa.hibernate.JpaHibernateTest@7ce026d3, testMethod = problemTest@JpaHibernateTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@1cf6d1be testClass = JpaHibernateTest, locations = '{}', classes = '{class org.springframework.format.support.DefaultFormattingConversionService}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[[ImportsContextCustomizer@663c9e7a key = [@org.springframework.boot.test.autoconfigure.orm.jpa.AutoConfigureDataJpa(), @org.springframework.boot.test.autoconfigure.orm.jpa.AutoConfigureTestEntityManager(), @org.springframework.test.context.ContextConfiguration(inheritInitializers=true, loader=org.springframework.test.context.ContextLoader.class, initializers={}, classes={org.springframework.format.support.DefaultFormattingConversionService.class}, name="", locations={}, value={}, inheritLocations=true), @org.springframework.boot.test.autoconfigure.properties.PropertyMapping(value="spring.test.database", skip=NO), @org.springframework.boot.test.autoconfigure.core.AutoConfigureCache(cacheProvider=NONE), @org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase(replace=ANY, connection=NONE), @org.springframework.context.annotation.Import({org.springframework.data.jpa.repository.config.JpaRepositoriesRegistrar.class}), @org.springframework.context.annotation.PropertySource(name="", factory=org.springframework.core.io.support.PropertySourceFactory.class, ignoreResourceNotFound=false, encoding="", value={"classpath:application.properties"}), @org.springframework.data.jpa.repository.config.EnableJpaRepositories(repositoryBaseClass=org.springframework.data.repository.config.DefaultRepositoryBaseClass.class, enableDefaultTransactions=true, excludeFilters={}, basePackageClasses={com.vlad.wild.jpa.hibernate.PersonRepository.class}, escapeCharacter='\\', includeFilters={}, bootstrapMode=DEFAULT, repositoryFactoryBeanClass=org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.class, queryLookupStrategy=CREATE_IF_NOT_FOUND, entityManagerFactoryRef="entityManagerFactory", namedQueriesLocation="", transactionManagerRef="transactionManager", considerNestedRepositories=false, repositoryImplementationPostfix="Impl", basePackages={}, value={}), @org.springframework.boot.autoconfigure.domain.EntityScan(basePackages={}, value={}, basePackageClasses={com.vlad.wild.jpa.hibernate.JpaHibernateTest$Person.class, com.vlad.wild.jpa.hibernate.JpaHibernateTest$Car.class}), @org.springframework.context.annotation.Import({org.springframework.boot.autoconfigure.domain.EntityScanPackages$Registrar.class}), @org.apiguardian.api.API(consumers={"*"}, since="5.0", status=STABLE), @org.junit.jupiter.api.extension.ExtendWith({org.springframework.test.context.junit.jupiter.SpringExtension.class}), @org.springframework.boot.test.autoconfigure.filter.TypeExcludeFilters({org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTypeExcludeFilter.class}), @org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest(bootstrapMode=DEFAULT, useDefaultFilters=true, excludeFilters={}, excludeAutoConfiguration={}, showSql=true, includeFilters={}, properties={}), @org.springframework.boot.autoconfigure.ImportAutoConfiguration(value={}, exclude={}, classes={}), @org.springframework.context.annotation.Import({org.springframework.boot.autoconfigure.ImportAutoConfigurationImportSelector.class}), @org.springframework.transaction.annotation.Transactional(propagation=REQUIRED, rollbackForClassName={}, readOnly=false, transactionManager="", isolation=DEFAULT, noRollbackForClassName={}, noRollbackFor={}, value="", timeout=-1, rollbackFor={}), @org.springframework.boot.test.autoconfigure.OverrideAutoConfiguration(enabled=false), @org.springframework.test.context.BootstrapWith(org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper.class)]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@3d5c822d, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@49c7b90e, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@bd4dc25, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@9ebcc9d5, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@57cf54e1, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@64c95480]; rollback [true]
+2022-05-21 21:06:49.660 DEBUG 8928 --- [           main] org.hibernate.SQL                        :
+    select
+        jpahiberna0_.id as id1_1_,
+        jpahiberna0_.name as name2_1_
+    from
+        persons jpahiberna0_
+Hibernate:
+    select
+        jpahiberna0_.id as id1_1_,
+        jpahiberna0_.name as name2_1_
+    from
+        persons jpahiberna0_
+2022-05-21 21:06:59.775 DEBUG 8928 --- [           main] org.hibernate.SQL                        :
+    select
+        cars0_.person_id as person_i3_0_0_,
+        cars0_.id as id1_0_0_,
+        cars0_.id as id1_0_1_,
+        cars0_.model as model2_0_1_
+    from
+        cars cars0_
+    where
+        cars0_.person_id=?
+Hibernate:
+    select
+        cars0_.person_id as person_i3_0_0_,
+        cars0_.id as id1_0_0_,
+        cars0_.id as id1_0_1_,
+        cars0_.model as model2_0_1_
+    from
+        cars cars0_
+    where
+        cars0_.person_id=?
+2022-05-21 21:06:59.777 TRACE 8928 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2022-05-21 21:07:01.816 DEBUG 8928 --- [           main] org.hibernate.SQL                        :
+    select
+        cars0_.person_id as person_i3_0_0_,
+        cars0_.id as id1_0_0_,
+        cars0_.id as id1_0_1_,
+        cars0_.model as model2_0_1_
+    from
+        cars cars0_
+    where
+        cars0_.person_id=?
+Hibernate:
+    select
+        cars0_.person_id as person_i3_0_0_,
+        cars0_.id as id1_0_0_,
+        cars0_.id as id1_0_1_,
+        cars0_.model as model2_0_1_
+    from
+        cars cars0_
+    where
+        cars0_.person_id=?
+2022-05-21 21:07:01.816 TRACE 8928 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [2]
