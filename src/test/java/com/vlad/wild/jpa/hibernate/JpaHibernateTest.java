@@ -22,6 +22,20 @@ import javax.persistence.Table;
 import java.util.Set;
 
 /**
+ * spring.datasource.url=jdbc:h2:mem:test
+ * spring.datasource.driver-class-name=org.h2.Driver
+ * spring.datasource.username=
+ * spring.datasource.password=
+ *
+ * spring.jpa.show-sql=true
+ * spring.jpa.hibernate.ddl-auto=update
+ * spring.jpa.properties.hibernate.format_sql=true
+ *
+ * logging.level.org.hibernate.SQL=DEBUG
+ * logging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE
+ */
+
+/**
  * Оптимальный ли тут будет запрос?
  */
 
